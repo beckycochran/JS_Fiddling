@@ -1,7 +1,17 @@
 import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 const App = () => {
+  const [myName, setMyName] = useState("");
+  const handleChange = ev => {
+    const value = ev.target.value;
+    setMyName(value)
+  }
+  const handleSubmit = ev => {
+    
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -9,8 +19,11 @@ const App = () => {
         <p>
           Welcome human. Enter your name.
         </p>
-        <input type="text" />
-        </header>
+        <form>
+          <input type="text" onChange={handleChange} />
+          <button type="submit" disabled={!myName}>Submit</button>
+        </form>
+      </header>
     </div>
   );
 }
