@@ -1,21 +1,15 @@
-import Homepage from './components/Homepage';
 import Greeting from './components/Greeting';
-import { UserContext } from './Context';
+import Homepage from './components/Homepage';
 import { useState } from 'react';
 
 const App = () => {
- const UserProvider = ({children}) => {
-    const [user, setUser] = useState({
-       name: ""
-    })
-   }
-   
+  const [isNameSubmitted, setIsNameSubmitted] = useState(false)
 
   return (
-    <UserContext.Provider value={{user, setUser}}>
-      <Greeting />
-      {!user.name && <Homepage />}
-    </UserContext.Provider>
+      // <Greeting />
+    <Homepage 
+      isNameSubmitted={isNameSubmitted}
+    />
   );
 }
 

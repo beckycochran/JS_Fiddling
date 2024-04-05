@@ -1,10 +1,9 @@
 import logo from '../logo.svg';
 import '../App.css';
-import { useState, useContext } from 'react';
-import { UserContext } from '../Context';
+import { useState, useEffect } from 'react';
 
-const Homepage = () => {
-  const { user, setUser } = useContext(UserContext)
+const Homepage = ({isNameSubmitted, setIsNameSubmitted}) => {
+  useEffect(() => {}, [isNameSubmitted])
   const [text, setText] = useState("")
 
   const handleChange = ev => {
@@ -12,20 +11,30 @@ const Homepage = () => {
     setText(value)
   }
   const handleSubmit = ev => {
-    setUser({ ...user, name: text })
+    console.log(ev, "event")
+    ev.preventDefault()
+    setIsNameSubmitted(true)
+    console.log("submitted")
   }
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Welcome human. Enter your name.
-        </p>
-        <form>
-          <input type="text" onChange={handleChange} />
-          <button type="submit" disabled={!text} onSubmit={handleSubmit}>Submit</button>
-        </form>
+        {!isNameSubmitted &&
+          <>
+            <p>
+              Welcome human. Enter your name.
+            </p>
+            <form>
+              <input type="text" onChange={handleChange} />
+              <button type="submit" disabled={!text} onSubmit={handleSubmit}>Submit</button>
+            </form>
+          </>
+        }
+        {isNameSubmitted &&
+          <div>Your name is {text}.</div>
+        }
       </header>
     </div>
   );
