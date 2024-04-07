@@ -1,6 +1,5 @@
-import logo from '../logo.svg';
-import '../App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { styled } from 'styled-components';
 
 const Homepage = () => {
   const [isNameSubmitted, setIsNameSubmitted] = useState(false)
@@ -22,29 +21,32 @@ const Homepage = () => {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {!isNameSubmitted &&
-          <>
-            <p>
-              Welcome human. Enter your name.
-            </p>
-            <form onSubmit={handleSubmit}>
-              <input type="text" onChange={handleChange} />
-              <button type="submit" disabled={!text} >Submit</button>
-            </form>
-          </>
-        }
-        {isNameSubmitted &&
-          <span className="App-declaration">
-            <div>Your name is {text}.</div>
-            <button onClick={handleResetButton}>Reset</button>
-          </span>
-        }
-      </header>
-    </div>
+    <Page>
+      {!isNameSubmitted &&
+        <>
+          <p>
+            Welcome human. Enter your name.
+          </p>
+          <form onSubmit={handleSubmit}>
+            <input type="text" onChange={handleChange} />
+            <button type="submit" disabled={!text} >Submit</button>
+          </form>
+        </>
+      }
+      {isNameSubmitted &&
+        <span className="App-declaration">
+          <div>Your name is {text}.</div>
+          <button onClick={handleResetButton}>Reset</button>
+        </span>
+      }
+    </Page>
   );
 }
+
+
+const Page = styled.div`
+background-color: red;
+height: 90vh;
+`
 
 export default Homepage;

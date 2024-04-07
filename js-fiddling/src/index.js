@@ -5,6 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css';
+
 import Root from './routes/root';
 import Homepage from './components/Homepage';
 import Math from './components/Math';
@@ -16,11 +17,11 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        path:"/name",
+        path:"name",
         element: <Homepage />
       },
       {
-        path:"/one-plus-one",
+        path:"one-plus-one",
         element: <Math />
       }
     ]
