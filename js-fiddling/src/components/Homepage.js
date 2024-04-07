@@ -2,19 +2,25 @@ import logo from '../logo.svg';
 import '../App.css';
 import { useState, useEffect } from 'react';
 
-const Homepage = ({isNameSubmitted, setIsNameSubmitted}) => {
-  useEffect(() => {}, [isNameSubmitted])
+const Homepage = () => {
+  const [isNameSubmitted, setIsNameSubmitted] = useState(false)
   const [text, setText] = useState("")
+
+  // useEffect(() => { }, [isNameSubmitted])
 
   const handleChange = ev => {
     const value = ev.target.value;
     setText(value)
   }
   const handleSubmit = ev => {
-    console.log(ev, "event")
-    ev.preventDefault()
+    // ev.preventDefault()
     setIsNameSubmitted(true)
     console.log("submitted")
+  }
+
+  const handleResetButton = ev => {
+    setIsNameSubmitted(false)
+    setText("")
   }
 
   return (
@@ -26,14 +32,17 @@ const Homepage = ({isNameSubmitted, setIsNameSubmitted}) => {
             <p>
               Welcome human. Enter your name.
             </p>
-            <form>
+            <form onSubmit={handleSubmit}>
               <input type="text" onChange={handleChange} />
-              <button type="submit" disabled={!text} onSubmit={handleSubmit}>Submit</button>
+              <button type="submit" disabled={!text} >Submit</button>
             </form>
           </>
         }
         {isNameSubmitted &&
-          <div>Your name is {text}.</div>
+          <span className="App-declaration">
+            <div>Your name is {text}.</div>
+            <button onClick={handleResetButton}>Reset</button>
+          </span>
         }
       </header>
     </div>
