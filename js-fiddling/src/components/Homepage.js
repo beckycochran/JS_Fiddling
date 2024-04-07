@@ -6,14 +6,12 @@ const Homepage = () => {
   const [isNameSubmitted, setIsNameSubmitted] = useState(false)
   const [text, setText] = useState("")
 
-  // useEffect(() => { }, [isNameSubmitted])
 
   const handleChange = ev => {
     const value = ev.target.value;
     setText(value)
   }
   const handleSubmit = ev => {
-    // ev.preventDefault()
     setIsNameSubmitted(true)
     console.log("submitted")
   }
