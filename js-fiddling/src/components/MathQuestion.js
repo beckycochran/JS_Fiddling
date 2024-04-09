@@ -9,7 +9,6 @@ const MathQuestion = ({ qAndA }) => {
     const handleSubmit = e => {
         e.preventDefault()
         inputRef.current.focus();
-        console.log(inputRef.current.valueAsNumber === a)
         inputRef.current.valueAsNumber === a ?
             setResult("correct") :
             setResult("incorrect")

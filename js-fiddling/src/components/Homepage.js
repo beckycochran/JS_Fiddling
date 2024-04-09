@@ -12,16 +12,14 @@ const Homepage = () => {
   }
   const handleSubmit = ev => {
     setIsNameSubmitted(true)
-    console.log("submitted")
   }
-
   const handleResetButton = ev => {
     setIsNameSubmitted(false)
     setText("")
   }
 
   return (
-    <Page>
+    <>
       {!isNameSubmitted &&
         <>
           <p>
@@ -39,14 +37,8 @@ const Homepage = () => {
           <button onClick={handleResetButton}>Reset</button>
         </span>
       }
-    </Page>
+    </>
   );
 }
-
-
-const Page = styled.div`
-background-color: red;
-height: 90vh;
-`
 
 export default Homepage;
