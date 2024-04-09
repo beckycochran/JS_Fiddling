@@ -1,7 +1,6 @@
-const StorytimeOption = ({ name,  options }) => {
+const StorytimeOption = ({ name,  options, arrOfAnswers, setArrOfAnswers }) => {
     const handleSelect = e => {
-        console.log(e.target)
-        console.log("select val", e.target.value)
+        setArrOfAnswers([...arrOfAnswers, e.target.value])
     }
 
     return <>
