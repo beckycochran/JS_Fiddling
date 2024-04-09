@@ -9,6 +9,7 @@ import './index.css';
 import Root from './routes/root';
 import Homepage from './components/Homepage';
 import Math from './components/Math';
+import Storytime from './components/Storytime';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path:"one-plus-one",
         element: <Math />
+      },
+      {
+        path:"storytime",
+        element: <Storytime />
       }
     ]
   },
