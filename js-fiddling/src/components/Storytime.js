@@ -1,11 +1,20 @@
+import { useState } from "react"
+import StorytimeOption from "./StorytimeOption"
+
 const Storytime = () => {
+    const [isPublished, setIsPublished] = useState(false)
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        setIsPublished(true)
+    }
+
     return <>
-        <label for="foods">Choose a food group:</label>
-        <select aria-placeholder="" name="foods">
-            <option value="unselected" disabled selected hidden></option>
-            <option value="fruit">Fruit</option>
-            <option value="veg">Veggies</option>
-        </select>
+        <form onSubmit={handleSubmit}>
+            <StorytimeOption name={"mainChar"} options={["Paul", "Peter", "Priscilla"]}/>
+            <button type="submit">Publish!</button>
+        </form>
+        {isPublished && <div>Your story here</div>}
     </>
 }
 
