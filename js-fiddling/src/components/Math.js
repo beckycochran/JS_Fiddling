@@ -1,7 +1,9 @@
-import { useState } from "react";
+// import { useState } from "react";
+import MathQuestion from "./MathQuestion";
+
 const Math = () => {
-    const [ans, setAns] = useState(undefined)
-    const [result, setResult] = useState(undefined)
+    // const [ans, setAns] = useState(undefined)
+    // const [result, setResult] = useState(undefined)
 
     const questionsAndAnswers = [
         ["1 + 1", 2],
@@ -9,32 +11,16 @@ const Math = () => {
         ["2 + 2", 4]
     ];
 
-    const handleChange = e => {
-        setAns(e.target.value)
-    }
+    // const handleChange = e => {
+    //     setAns(e.target.value)
+    // }
 
-    const handleSubmit = (a) => {
-        setResult(ans == a)
-    }
+    // const handleSubmit = (a) => {
+    //     setResult(ans == a)
+    // }
 
     return (<div>
-        {questionsAndAnswers.map((qAndA) => {
-            const q = qAndA[0]
-            const a = qAndA[1]
-            return <>
-                <div>{q}</div>
-                <form onSubmit={handleSubmit(a)}>
-                    <input type="number" onChange={handleChange} />
-                    <button>Submit</button>
-                </form>
-                {result &&
-                    <div>That's correct</div>
-                }
-                {result == false &&
-                    <div>That's incorrect</div>
-                }
-            </>
-        })}
+        {Object.values(questionsAndAnswers).map((qAndA, index) => <MathQuestion key={index} qAndA={qAndA}/>)}
     </div>)
 
 }
