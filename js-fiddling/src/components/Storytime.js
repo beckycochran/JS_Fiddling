@@ -6,12 +6,17 @@ const Storytime = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
+        console.log(e)
         setIsPublished(true)
     }
 
     return <>
         <form onSubmit={handleSubmit}>
-            <StorytimeOption name={"mainChar"} options={["Paul", "Peter", "Priscilla"]}/>
+            <section>
+                There once was a prince named <StorytimeOption name={"mainChar"} options={["Paul", "Peter", "Patrick"]}/>,
+                who loved to <StorytimeOption name={"mainCharMov"} options={["prance", "somersault", "stumble"]}/>
+                into the woods and <StorytimeOption name={"mainCharJob"} options={["whittle toy trains", "pickle peppers", "yodel"]}/>.
+            </section>
             <button type="submit">Publish!</button>
         </form>
         {isPublished && <div>Your story here</div>}
