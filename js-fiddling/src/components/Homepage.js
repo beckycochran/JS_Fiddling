@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { styled } from 'styled-components';
 
 const Homepage = () => {
   const [isNameSubmitted, setIsNameSubmitted] = useState(false)
