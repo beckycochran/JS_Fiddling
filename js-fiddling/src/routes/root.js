@@ -9,6 +9,7 @@ const Root = () => {
             <img src={logo} className="nav-logo" alt="logo" />
             <StyledLink to="name">Intro</StyledLink>
             <StyledLink to="one-plus-one">+/-</StyledLink>
+            <StyledLink to="storytime">Storytime</StyledLink>
         </header>
         <Outlet />
     </>
