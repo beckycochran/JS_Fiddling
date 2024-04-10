@@ -1,4 +1,4 @@
-const StorytimeOption = ({ ind, name,  options, arrOfAnswers }) => {
+const StorytimeOption = ({ ind, name, options, arrOfAnswers }) => {
     const handleSelect = e => {
         arrOfAnswers[ind] = e.target.value
     }

@@ -8,9 +8,8 @@ const Storytime = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        // check for any empty values
+        console.log(e)
         if (Object.values(arrOfAnswers).length !== arrOfAnswers.length || arrOfAnswers.length < 6) {
-            console.log("empty element")
             alert("you need to fill in all values")
         } else {
             const innerTextArr = e.target.innerText.split("  ")
