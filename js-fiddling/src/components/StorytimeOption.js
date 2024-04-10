@@ -1,6 +1,6 @@
-const StorytimeOption = ({ name,  options, arrOfAnswers, setArrOfAnswers }) => {
+const StorytimeOption = ({ ind, name,  options, arrOfAnswers }) => {
     const handleSelect = e => {
-        setArrOfAnswers([...arrOfAnswers, e.target.value])
+        arrOfAnswers[ind] = e.target.value
     }
 
     return <>
